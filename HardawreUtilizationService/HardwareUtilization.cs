@@ -16,13 +16,14 @@ namespace HardawreUtilizationService
 
         public HardwareUtilization(int timerInterval)
         {
-            _timer = new System.Timers.Timer(timerInterval - 1000);
+            _timer = new System.Timers.Timer(timerInterval - 500);
             _timer.Elapsed += TimerElapsed;
         }
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
             string[] values = GetData();
+            // TODO: Add data to database
             string localPath = @"C:\Work\TrizmaNCR\HardwareUtilizationService\MS-Service-Hardware-Utilization\HardawreUtilizationService\Test.txt";
             File.AppendAllLines(localPath, values);
         }
@@ -42,7 +43,7 @@ namespace HardawreUtilizationService
             cpuCounter.NextValue();
             ramCounter.NextValue();
             diskCounter.NextValue();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
 
             string cpuValue = cpuCounter.NextValue() + "%";
 
