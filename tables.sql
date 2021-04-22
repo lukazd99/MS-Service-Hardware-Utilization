@@ -1,0 +1,19 @@
+CREATE DATABASE NCR_DEMO;
+
+CREATE TABLE HardwareTypes(
+Id INT NOT NULL AUTO_INCREMENT,
+Model VARCHAR(128),
+AdditionalInfo VARCHAR(512),
+PRIMARY KEY (Id)
+);
+
+CREATE TABLE Records(
+Id INT NOT NULL AUTO_INCREMENT,
+HardwareTypeId INT,
+`Value` INT,
+CreateDate DATETIME,
+PRIMARY KEY (Id),
+INDEX rec_ind (Id),
+CONSTRAINT fk_hardwaretypes FOREIGN KEY (HardwareTypeId)
+REFERENCES HardwareTypes(Id)
+);
