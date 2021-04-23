@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardawreUtilizationService", "HardawreUtilizationService.csproj", "{9E3F6BF3-9DEC-47BA-A08A-E9596510D11D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareUtilizationService", "HardwareUtilizationService.csproj", "{9E3F6BF3-9DEC-47BA-A08A-E9596510D11D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
