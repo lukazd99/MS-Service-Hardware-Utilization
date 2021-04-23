@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 using Topshelf;
 
 namespace HardwareUtilizationService
@@ -12,12 +9,16 @@ namespace HardwareUtilizationService
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter time interval in seconds for service:");
+            int interval = int.Parse(Console.ReadLine());
 
+            // TOPSHELF LIBRARY CODE
+            // Used for starting the ServiceHost class as a service and configuring it.
             var exitCode = HostFactory.Run(x =>
             {
                 x.Service<ServiceHost>(s =>
                 {
-                    s.ConstructUsing(hardwareUtilization => new ServiceHost(10000));
+                    s.ConstructUsing(hardwareUtilization => new ServiceHost(interval* 1000));
                     s.WhenStarted(hardwareUtilization => hardwareUtilization.Start());
                     s.WhenStopped(hardwareUtilization => hardwareUtilization.Stop());
                 });
